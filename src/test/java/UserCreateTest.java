@@ -25,7 +25,7 @@ public class UserCreateTest {
     @After
     public void tearDown() {
         if (accessToken != null) {
-            userClient.deletingUser(accessToken, user);
+            userClient.deleteUser(accessToken, user);
         }
     }
 
@@ -51,7 +51,7 @@ public class UserCreateTest {
         ValidatableResponse response = userClient.userCreate(user);
 
         accessToken = response.extract().path("accessToken").toString().substring(7);
-        ValidatableResponse deleteResponse = userClient.deletingUser(accessToken, user);
+        ValidatableResponse deleteResponse = userClient.deleteUser(accessToken, user);
 
         int statusCode = deleteResponse.extract().statusCode();
         boolean isDeleted = deleteResponse.extract().path("success");

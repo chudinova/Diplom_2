@@ -27,7 +27,7 @@ public class LoginTest {
 
     @After
     public void tearDown() {
-        userClient.deletingUser(accessToken, user);
+        userClient.deleteUser(accessToken, user);
     }
 
     @Test

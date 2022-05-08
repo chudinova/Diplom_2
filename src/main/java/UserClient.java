@@ -68,7 +68,7 @@ public class UserClient extends StellarBurgerRestClient {
     }
 
     @Step("Delete user")
-    public ValidatableResponse deletingUser(String accessToken, User user) {
+    public ValidatableResponse deleteUser(String accessToken, User user) {
         return given()
                 .spec(getBaseSpec())
                 .body(user)
