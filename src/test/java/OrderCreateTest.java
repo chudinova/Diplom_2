@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.Collections;
 import static org.junit.Assert.*;
 
-@Epic("Creating new user role")
+@Epic("Create new order")
 @Feature("Create order")
 public class OrderCreateTest {
 
