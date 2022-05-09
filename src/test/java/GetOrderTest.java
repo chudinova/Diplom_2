@@ -27,7 +27,7 @@ public class GetOrderTest {
         userClient = new UserClient();
         user = User.getRandom();
         response = userClient.userCreate(user);
-        accessToken = response.extract().path("accessToken").toString().substring(7);
+        accessToken = response.extract().path("accessToken").toString();
         ValidatableResponse ingredients = orderClient.gettingAllIngredients();
         firstIngredient = ingredients.extract().path("data[1]._id");
     }
@@ -48,10 +48,10 @@ public class GetOrderTest {
         response = orderClient.gettingOrderUserWithAuthorization(accessToken);
 
         int statusCode = response.extract().statusCode();
-        boolean isGeted = response.extract().path("success");
+        boolean isSuccess = response.extract().path("success");
         List<String> orders = response.extract().path("orders");
         assertEquals("Status code is not 200", 200, statusCode);
-        assertTrue("Orders are not get", isGeted);
+        assertTrue("Orders are not get", isSuccess);
         assertNotNull("Orders empty", orders);
     }
 

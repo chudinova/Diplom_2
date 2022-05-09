@@ -31,6 +31,7 @@ public class ChangeUserDataTest {
         userClient.deleteUser(accessToken, user);
     }
 
+    //тест падает из-за бага - мэйл возвращется сервером в нижнем регистре
     @Test
     @DisplayName("Changing user")
     @Description("Getting user data")
@@ -38,12 +39,12 @@ public class ChangeUserDataTest {
         userClient.gettingInformationUser(accessToken);
 
         int statusCode = response.extract().statusCode();
-        boolean isGeted = response.extract().path("success");
+        boolean isSuccess = response.extract().path("success");
         String userEmail = response.extract().path("user.email");
         String userName = response.extract().path("user.name");
 
         assertEquals("Status code is not 200",200, statusCode);
-        assertTrue("Information is not get",isGeted);
+        assertTrue("Information is not get", isSuccess);
         assertEquals("User email is not valid", user.getEmail(), userEmail);
         assertEquals("User name is not valid", user.getName(), userName);
     }
@@ -130,9 +131,10 @@ public class ChangeUserDataTest {
         assertEquals(user.getName(), userName);
     }
 
+    //здесь тест упадет из-за бага - система дает заменить мэйл на тот, который уже используется
     @Test
     @DisplayName("Changing user")
-    @Description("Test for change information about user with authorization {exactly the same email}")
+    @Description("Change information about user with authorization and the same email")
     public void changeEmailOnExactlyWithAuthorizationTest() {
         String exactlyUserEmail = user.getEmail();
 

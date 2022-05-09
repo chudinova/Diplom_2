@@ -14,7 +14,7 @@ public class OrderClient extends StellarBurgerRestClient {
                 .body(order)
                 .when()
                 .post(ORDER_PATH)
-                .then().log().all();
+                .then();
     }
 
     @Step("Creating order without authorization")
@@ -24,17 +24,17 @@ public class OrderClient extends StellarBurgerRestClient {
                 .body(order)
                 .when()
                 .post(ORDER_PATH)
-                .then().log().all();
+                .then();
     }
 
     @Step("Getting orders one user with authorization")
     public ValidatableResponse gettingOrderUserWithAuthorization(String accessToken) {
         return given()
-                .auth().oauth2(accessToken)
+                .header("Authorization", accessToken)
                 .spec(getBaseSpec())
                 .when()
                 .get(ORDER_PATH)
-                .then().log().all();
+                .then();
     }
 
     @Step("Getting orders one user without authorization")
@@ -43,7 +43,7 @@ public class OrderClient extends StellarBurgerRestClient {
                 .spec(getBaseSpec())
                 .when()
                 .get(ORDER_PATH)
-                .then().log().all();
+                .then();
     }
 
     @Step("Getting all orders")
@@ -52,7 +52,7 @@ public class OrderClient extends StellarBurgerRestClient {
                 .spec(getBaseSpec())
                 .when()
                 .get(ORDER_PATH + "/all")
-                .then().log().all();
+                .then();
     }
 
     @Step("Getting all ingredients")
@@ -61,6 +61,6 @@ public class OrderClient extends StellarBurgerRestClient {
                 .spec(getBaseSpec())
                 .when()
                 .get("/api/ingredients")
-                .then().log().all();
+                .then();
     }
 }

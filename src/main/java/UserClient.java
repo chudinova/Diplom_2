@@ -13,7 +13,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .body(user)
                 .when()
                 .post(USER_PATH + "register")
-                .then().log().all();
+                .then();
     }
 
     @Step("Authorization")
@@ -23,7 +23,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .body(credentials)
                 .when()
                 .post(USER_PATH + "login")
-                .then().log().all();
+                .then();
     }
 
     @Step("Logout")
@@ -33,7 +33,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .body(refreshToken)
                 .when()
                 .post(USER_PATH + "logout")
-                .then().log().all();
+                .then();
     }
 
     @Step("Getting info about user")
@@ -43,7 +43,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .spec(getBaseSpec())
                 .when()
                 .get(USER_PATH + "user")
-                .then().log().all();
+                .then();
     }
 
     @Step("Refreshing information user with token")
@@ -54,7 +54,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .body(user)
                 .when()
                 .patch(USER_PATH + "user")
-                .then().log().all();
+                .then();
     }
 
     @Step("Refreshing information user without token")
@@ -64,7 +64,7 @@ public class UserClient extends StellarBurgerRestClient {
                 .when()
                 .body(user)
                 .patch(USER_PATH + "user")
-                .then().log().all();
+                .then();
     }
 
     @Step("Delete user")
@@ -75,6 +75,6 @@ public class UserClient extends StellarBurgerRestClient {
                 .auth().oauth2(accessToken)
                 .when()
                 .delete(USER_PATH + "user")
-                .then().log().all();
+                .then();
     }
 }

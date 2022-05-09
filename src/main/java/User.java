@@ -8,11 +8,20 @@ import org.apache.commons.lang3.RandomStringUtils;
 @Builder
 public class User {
 
-    private final String email;
-    private final String password;
-    private final String name;
+    private String email;
+    private String password;
+    private String name;
 
-    @Step("Create users with random credentials")
+    public User() {
+    }
+
+    public User(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
+
+    @Step("Create user with random credentials")
     public static User getRandom() {
 
         final String email = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
@@ -25,17 +34,38 @@ public class User {
 
         return new User(email, password, name);
     }
-/*
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static String getRandomEmail(){
 
-        return RandomStringUtils.randomAlphabetic(10)+"@testdata.com";
+        return RandomStringUtils.randomAlphabetic(8)+"@mail.ru";
     }
 
     public static String getRandomData(){
 
-        return RandomStringUtils.randomAlphabetic(10);
+        return RandomStringUtils.randomAlphabetic(8);
     }
-
- */
-
 }

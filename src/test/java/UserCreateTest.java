@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-@Epic("Creating new user role")
+@Epic("Creating new user")
 @Feature("Registration of user")
 public class UserCreateTest {
 
@@ -67,7 +67,7 @@ public class UserCreateTest {
     }
 
     @Test
-    @DisplayName("Creating anoughter user")
+    @DisplayName("Creating another user")
     @Description("Can't create user twice")
     public void secondUserTest() {
         user = User.getRandom();
@@ -107,8 +107,8 @@ public class UserCreateTest {
     @Description("Can't create user with no password")
     public void creatingWithoutPasswordTest() {
         user = User.builder()
-                .email(RandomStringUtils.randomAlphabetic(10) + "@testdata.com")
-                .name(RandomStringUtils.randomAlphabetic(10))
+                .email(RandomStringUtils.randomAlphabetic(8) + "@mail.ru")
+                .name(RandomStringUtils.randomAlphabetic(8))
                 .build();
 
         ValidatableResponse response = userClient.userCreate(user);
@@ -122,12 +122,12 @@ public class UserCreateTest {
     }
 
     @Test
-    @DisplayName("Creating user wint no name")
+    @DisplayName("Creating user with no name")
     @Description("Can't create user with no name")
     public void creatingWithoutNameTest() {
         user = User.builder()
-                .email(RandomStringUtils.randomAlphabetic(10) + "@testdata.com")
-                .password(RandomStringUtils.randomAlphabetic(10))
+                .email(RandomStringUtils.randomAlphabetic(8) + "@mail.ru")
+                .password(RandomStringUtils.randomAlphabetic(8))
                 .build();
 
         ValidatableResponse response = userClient.userCreate(user);
