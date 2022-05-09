@@ -59,12 +59,12 @@ public class User {
         this.name = name;
     }
 
-    public static String getRandomEmail(){
+    public static String getRandomEmail() {
 
-        return RandomStringUtils.randomAlphabetic(8)+"@mail.ru";
+        return RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
     }
 
-    public static String getRandomData(){
+    public static String getRandomData() {
 
         return RandomStringUtils.randomAlphabetic(8);
     }
