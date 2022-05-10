@@ -28,7 +28,7 @@ public class OrderClient extends StellarBurgerRestClient {
                 .then();
     }
 
-    @Step("Getting orders one user with authorization")
+    @Step("Getting orders of one user with authorization")
     public ValidatableResponse gettingOrderUserWithAuthorization(String accessToken) {
         return given()
                 .header("Authorization", accessToken)
@@ -38,7 +38,7 @@ public class OrderClient extends StellarBurgerRestClient {
                 .then();
     }
 
-    @Step("Getting orders one user without authorization")
+    @Step("Getting orders of one user without authorization")
     public ValidatableResponse gettingOrderUserWithoutAuthorization() {
         return given()
                 .spec(getBaseSpec())

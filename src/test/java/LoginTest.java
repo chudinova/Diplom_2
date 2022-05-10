@@ -62,7 +62,7 @@ public class LoginTest {
     }
 
     @Test
-    @DisplayName("Login with not valid email")
+    @DisplayName("Login with not valid password")
     @Description("Can't login with incorrect password")
     public void validationWithWrongPasswordTest() {
         UserCredentials credentials = UserCredentials.builder()

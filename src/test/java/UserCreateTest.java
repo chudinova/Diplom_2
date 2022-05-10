@@ -67,7 +67,7 @@ public class UserCreateTest {
     }
 
     @Test
-    @DisplayName("Creating another user")
+    @DisplayName("Creating another user with the same credentials")
     @Description("Can't create user twice")
     public void secondUserTest() {
         user = User.getRandom();

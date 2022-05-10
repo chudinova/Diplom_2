@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 @Epic("Creating new user")
-@Feature("Changing registration of user")
+@Feature("Changing user data")
 public class ChangeUserDataTest {
 
     private User user;
@@ -33,8 +33,8 @@ public class ChangeUserDataTest {
 
     //тест падает из-за бага - мэйл возвращется сервером в нижнем регистре
     @Test
-    @DisplayName("Changing user")
-    @Description("Getting user data")
+    @DisplayName("Get user data")
+    @Description("Getting user data (email, name)")
     public void getUserDataTest() {
         userClient.gettingInformationUser(accessToken);
 
@@ -50,7 +50,7 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    @DisplayName("Changing user")
+    @DisplayName("Changing user data without auth")
     @Description("Can't change information about user with no authorization")
     public void changeInformationUserWithoutAuthorizationTest() {
         response = userClient.changeInformationUserWithoutToken(user);
@@ -133,9 +133,9 @@ public class ChangeUserDataTest {
 
     //здесь тест упадет из-за бага - система дает заменить мэйл на тот, который уже используется
     @Test
-    @DisplayName("Changing user")
+    @DisplayName("Changing user email by the same email")
     @Description("Change information about user with authorization and the same email")
-    public void changeEmailOnExactlyWithAuthorizationTest() {
+    public void changeEmailByTheSameTest() {
         String exactlyUserEmail = user.getEmail();
 
         User newUser = User.builder()

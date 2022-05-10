@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 import static org.junit.Assert.*;
 
-@Epic("Creating new user")
 @Feature("Get orders")
 public class GetOrderTest {
 
@@ -38,7 +37,7 @@ public class GetOrderTest {
     }
 
     @Test
-    @DisplayName("Getting orders")
+    @DisplayName("Getting all orders")
     @Description("Getting all orders for authorized user")
     public void getOrderOneUserWithAuthorizationTest() {
         Order order = new Order();
@@ -56,7 +55,7 @@ public class GetOrderTest {
     }
 
     @Test
-    @DisplayName("Getting orders")
+    @DisplayName("Getting orders for one user")
     @Description("Getting all orders for not authorized user")
     public void getOrderOneUserWithoutAuthorization() {
         Order order = new Order();

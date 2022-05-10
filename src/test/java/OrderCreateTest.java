@@ -37,7 +37,7 @@ public class OrderCreateTest {
     }
 
     @Test
-    @DisplayName("Creating orders")
+    @DisplayName("Creating order with auth")
     @Description("Authorized user create order with ingredients")
     public void creatingOrderWithAuthorizationTest() {
         Order order = new Order();
@@ -54,7 +54,7 @@ public class OrderCreateTest {
     }
 
     @Test
-    @DisplayName("Creating orders")
+    @DisplayName("Creating orders without auth")
     @Description("Not authorized user create order with ingredients")
     public void creatingOrderWithoutAuthorizationTest() {
         Order order = new Order();
@@ -71,8 +71,8 @@ public class OrderCreateTest {
     }
 
     @Test
-    @DisplayName("Creating orders")
-    @Description("Creating order with no ingredients")
+    @DisplayName("Creating orders without ingredients")
+    @Description("Can't create order with no ingredients")
     public void creatingOrderWithoutIngredientTest() {
         Order order = new Order();
 
@@ -87,8 +87,8 @@ public class OrderCreateTest {
     }
 
     @Test
-    @DisplayName("Creating orders")
-    @Description("Creating order with incorrect ingredients")
+    @DisplayName("Creating orders with incorrect ingredients")
+    @Description("Can't create order with incorrect ingredients")
     public void creatingOrderWithIncorrectHashesTest() {
         String incorrectHashes = Order.getRandomIngridient();
         Order order = new Order();
