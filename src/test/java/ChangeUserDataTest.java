@@ -1,5 +1,4 @@
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -8,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-@Epic("Creating new user")
 @Feature("Changing user data")
 public class ChangeUserDataTest {
 

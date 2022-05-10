@@ -1,5 +1,4 @@
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -9,7 +8,6 @@ import org.junit.Test;
 import java.util.Collections;
 import static org.junit.Assert.*;
 
-@Epic("Create new order")
 @Feature("Create order")
 public class OrderCreateTest {
 
